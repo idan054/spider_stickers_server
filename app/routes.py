@@ -6,7 +6,7 @@ api_bp = Blueprint('api', __name__)
 
 @api_bp.route('/health', methods=['GET'])
 def health_check():
-    return jsonify({'status': 'ok V1'})
+    return jsonify({'status': 'ok', 'Version' : 2})
 
 @api_bp.route('/api/create-task', methods=['POST'])
 def create_task():
