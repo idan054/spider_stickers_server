@@ -1,4 +1,5 @@
 from datetime import datetime
+import random
 
 def transform_woo_to_lionwheel(woo_order):
     """
@@ -6,7 +7,7 @@ def transform_woo_to_lionwheel(woo_order):
     """
     return {
         'pickup_at': datetime.strptime(woo_order['date_created'], '%Y-%m-%d').strftime('%d/%m/%Y'),
-        'original_order_id': woo_order['id'],
+        'original_order_id': f"{woo_order['id']}-{random.randint(1000, 9999)}",
         'notes': f"Order #{woo_order['number']}",
         'packages_quantity': "1",
         'destination_city': woo_order['shipping']['city'],
